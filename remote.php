@@ -3,30 +3,31 @@
 <title>NXT Command Center</title>
 <!--We load jquery as we use the Ajax GET fucntion of the library -->
 <script type="Text/Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" >
+<script type="Text/Javascript">
 $(document).ready(function(){
+	
   $("#FORWARD").mousedown(function(){
-   $.get("/m.php?role=remote&order=1") //for items with the ID Forward, we send '1' on mousedown
-   echo "fwd";
+   $.get("/~micha/webservice/m.php?role=remote&order=1"); //for items with the ID Forward, we send '1' on mousedown
+   
   });
 $("#BACKWARD").mousedown(function(){
-	$.get("/m.php?role=remote&order=2") //For items with the ID Backward, we send '2' on mousedown
+	$.get("/~micha/webservice/m.php?role=remote&order=2") //For items with the ID Backward, we send '2' on mousedown
   });
 
 $("#LEFT").mousedown(function(){
-	$.get("/m.php?role=remote&order=3") //For items with the ID Left, we send '3' on mousedown
+	$.get("/~micha/webservice/m.php?role=remote&order=3") //For items with the ID Left, we send '3' on mousedown
   });
 
 $("#RIGHT").mousedown(function(){
-	$.get("/m.php?role=remote&order=4") //For items with the ID Right, we send '4' on mousedown
+	$.get("/~micha/webservice/m.php?role=remote&order=4") //For items with the ID Right, we send '4' on mousedown
   });
 
 $("#STOP").mousedown(function(){
-	$.get("/m.php?role=remote&order=0") //For items with the ID Stop, we send '0' on mousedown
+	$.get("/~micha/webservice/m.php?role=remote&order=0") //For items with the ID Stop, we send '0' on mousedown
   });
 
 $(".remoteControl").mouseup(function(){
-	$.get("/m.php?role=remote&order=0") //For all items with the class remoteControl, we send 0 on mouseup
+	$.get("/~micha/webservice/m.php?role=remote&order=0") //For all items with the class remoteControl, we send 0 on mouseup
   });
 });
 </script>
