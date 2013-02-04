@@ -26,6 +26,11 @@ $("#STOP").mousedown(function(){
 	$.get("/~micha/webservice/m.php?role=remote&order=0") //For items with the ID Stop, we send '0' on mousedown
   });
 
+$("#RELEASE").mousedown(function(){
+  	$.get("/~micha/webservice/m.php?role=remote&order=5") //For items with the ID Right, we send '4' on mousedown
+    });
+
+
 $(".remoteControl").mouseup(function(){
 	$.get("/~micha/webservice/m.php?role=remote&order=0") //For all items with the class remoteControl, we send 0 on mouseup
   });
@@ -43,5 +48,6 @@ All buttons have the same class 'remoteControl' in order to send a STOP commend 
 <button id="LEFT" class="remoteControl">LEFT</button>
 <button id="RIGHT" class="remoteControl">RIGHT</button>
 <button id="STOP" class="remoteControl">STOP</button>
+<button id="RELEASE" class="remoteControl">RELEASE</button>
 </body>
 </html>
