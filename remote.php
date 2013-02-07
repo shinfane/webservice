@@ -8,7 +8,6 @@ $(document).ready(function(){
 	
   $("#FORWARD").mousedown(function(){
    $.get("/~micha/webservice/m.php?role=remote&order=1"); //for items with the ID Forward, we send '1' on mousedown
-   
   });
 $("#BACKWARD").mousedown(function(){
 	$.get("/~micha/webservice/m.php?role=remote&order=2") //For items with the ID Backward, we send '2' on mousedown
@@ -27,12 +26,16 @@ $("#STOP").mousedown(function(){
   });
 
 $("#RELEASE").mousedown(function(){
-  	$.get("/~micha/webservice/m.php?role=remote&order=5") //For items with the ID Right, we send '4' on mousedown
+  	$.get("/~micha/webservice/m.php?role=remote&order=5") //For items with the ID Release, we send '5' on mousedown
     });
+
+$("#STATUS").mousedown(function(){
+	  	$.get("/~micha/webservice/m.php?role=cloudtx&order=6") 
+	    });
 
 
 $(".remoteControl").mouseup(function(){
-	$.get("/~micha/webservice/m.php?role=remote&order=0") //For all items with the class remoteControl, we send 0 on mouseup
+	$.get("/~micha/webservice/m.php?role=remote&order=99") //For all items with the class remoteControl, we send 0 on mouseup
   });
 });
 </script>
@@ -49,5 +52,6 @@ All buttons have the same class 'remoteControl' in order to send a STOP commend 
 <button id="RIGHT" class="remoteControl">RIGHT</button>
 <button id="STOP" class="remoteControl">STOP</button>
 <button id="RELEASE" class="remoteControl">RELEASE</button>
+<button id="STATUS" class="remoteControl">STATUS</button>
 </body>
 </html>
