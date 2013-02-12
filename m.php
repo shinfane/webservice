@@ -1,15 +1,37 @@
 <?php 
 	require_once "phar://iron_mq.phar";
 	require_once "phar://iron_cache.phar";
+
+// oauth token and project ID stored locally because of public github repo
+// those would have to be added to the code
 	
 	$cache = new IronCache();
 	$ironmq = new IronMQ;
 
-$role = $_GET['role'];   //We handle the role of the client that can be 'robot' or 'remote'
+//We handle the multiple roles of the client that can be 'robot' or 'remote'
 
+$role = $_GET['role'];   
+
+
+// read the NXT status
+// Voltage NXT
+// Voltage WB
+// Sensor1
+
+function getStatus($icache){
+	
+	global $cache;
+	
+	$cache->setCacheName($icache);
+	$vnxt=$cache->get("VNXT")->value;
+	echo "Voltage NXT:$vnxt<BR>";
+	$vwb=$cache->get("VWB")->value;
+	echo "Voltage WB :$vwb<BR>";
+	
+}
 
 // I will need to add some error handling... later :)
-
+// TODO Error Handling
 
 switch ($role) {
     case "robot": //For the case 'robot', we fetch the command from the data.txt file
@@ -43,7 +65,19 @@ switch ($role) {
 		echo "$message<BR>";
 		break;
 		
+	case "status":
+		$cn=$_GET['cn'];
+		getStatus($cn);
+		break;
 		
+	case "get_all":
+		$cn=$_GET['cn'];
+		$cache->setCacheName($cn);
+		$message=$cache->getCache($cn);
+		
+		
+		break;
+	
 	case "display_s":
 		$msg=$_GET['msg'];
 		$voltage=$msg/10;
@@ -62,7 +96,7 @@ switch ($role) {
 	case "cloudtx":
 		$order=$_GET['order'];
 		// $queue=$_GET['queue'];
-		$ironmq->postMessage("nxt_queue", $order, array('expires_in' => 60));
+		$ironmq->postMessage("nxt_queue", $order, array('expires_in' => 10));
 		break;
 	
 	case "cloudrx":
