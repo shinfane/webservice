@@ -1,6 +1,6 @@
 <?php
 $prefix="/tmp/upload/";
-$nbc="/Users/micha/bin/nbc -help";
+$nbc="/usr/local/bin/nexttool";
 
 
 function startNBC($file) {
