@@ -49,6 +49,12 @@ $("#RSCAN").mousedown(function(){
 	$.get("/~micha/webservice/m.php?role=remote&order=8");
 	});
 
+$("#UPLOAD").mousedown(function(){
+			 	//$.get("/~micha/webservice/m.php?role=c_w&cn=nxtmove&key=move&value=6") 
+	$.get("http://192.168.1.138/",function(data) { alert("Data Loaded: " + data)});
+	});
+
+
 
 $(".remoteControl").mouseup(function(){
 	//$.get("/~micha/webservice/m.php?role=c_w&cn=nxtmove&key=move&value=99") //For all items with the class remoteControl, we send 0 on mouseup
@@ -64,7 +70,7 @@ Each Button has an ID allowing to perform the associated action on mousedown.
 All buttons have the same class 'remoteControl' in order to send a STOP commend on the mouseup event
 -->
 
-<img src=http://192.168.1.133:8080><BR>
+<!-- <img src=http://192.168.1.133:8080><BR> -->
 
 <button id="FORWARD" class="remoteControl">FORWARD</button>
 <button id="BACKWARD" class="remoteControl">BACKWARD</button>
@@ -75,6 +81,7 @@ All buttons have the same class 'remoteControl' in order to send a STOP commend 
 <button id="STATUS" class="remoteControl">STATUS</button>
 <button id="LSCAN" class="remoteControl">LEFTSCAN</button>
 <button id="RSCAN" class="remoteControl">RIGHTSCAN</button>
-	
+<button id="UPLOAD" class="utility">UPLOAD</button>
+
 </body>
 </html>
