@@ -48,6 +48,11 @@ switch ($role) {
 		fputs($fp,$order);
 		fclose($fp);
 		break;
+		
+	case "py_w":
+		$order = $_GET['order'];
+		$cmd="/usr/local/bin/nexttool /COM=usb -msg=" . $order;
+		exec($cmd, $result);
 	
 	case "c_w":
 		$cn=$_GET['cn'];
