@@ -41,7 +41,7 @@ switch ($role) {
 		echo $order;		
 		break;
     
-	case "remote"://For the case 'remote', we write the command passed by the 'order variable in the data.txt file
+	case "_remote"://For the case 'remote', we write the command passed by the 'order variable in the data.txt file
 		$order = $_GET['order'];
 		$fp = fopen("data.txt","w");
 		fseek($fp,0);
@@ -49,7 +49,7 @@ switch ($role) {
 		fclose($fp);
 		break;
 		
-	case "py_w":
+	case "remote":
 		$order = $_GET['order'];
 		$cmd="/usr/local/bin/nexttool /COM=usb -msg=" . $order;
 		exec($cmd, $result);
